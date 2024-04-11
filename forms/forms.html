@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Sign-Up Form</title>
+   <link rel="stylesheet" href="style.css">
+   <script type="module" src="script.js" defer></script>
+</head>
+<body>
+   <section class="container">
+      <div class="image_container">
+         <img src="pixel.gif" alt="image">
+         <div class="overlay_text">
+            <h1>PATRIARCH</h1>
+         </div>
+      </div>
+      <div class="form_container">
+         <h1>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. <br> Sign up <i>now</i> to get started <br> <br> You <i>know</i> you want to.</h1>
+         <form action="forms.html" method="post" class="myForm">
+            <fieldset>
+               <legend>Let's do this!</legend>
+               <div class="section_1">
+                  <label for="first_name">FIRST NAME</label>
+                  <input type="text" name="first_name" maxlength="30" value="Cain" id="first_name">
+                  <label for="user_email">EMAIL</label>
+                  <input type="email" name="user_email" id="user_email">
+                  <label for="user_password" class="password">PASSWORD</label>
+                  <input type="password" name="user_password" id="user_password">
+               </div>
+               <div class="section_2">
+                  <label for="last_name">LAST NAME</label>
+                  <input type="text" name="last_name" maxlength="30"  id="last_name">
+                  <label for="phone_number">PHONE NUMBER</label>
+                  <input type="tel" name="phone_number" id="phone_number">
+                  <label for="user_password_2">CONFIRM PASSWORD</label>
+                  <input type="password" name="user_password_2" id="user_password_2">
+               </div>
+            </fieldset>
+            <button class="submit_button" type="submit">Create an account</button>
+            <p class="misc">Already have an account? <a>Log In</a></p>
+         </form>
+      </div>
+   </section>
+</body>
+</html>

@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+:root {
+   --main-color: #3c3434;
+}
+
+body, html {
+   height: 100vh;
+   width: 100%;
+   overflow: hidden;
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+}
+
+body > section {
+   width: 80%;
+   height: 80%;
+   border: 1px solid rgb(238, 232, 232);
+   border-radius: 50px 200px 100px;
+   background-color: rgba(255, 255, 255, 1);
+   color: var(--main-color);
+   box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.13), 0px 1px 2px 0px rgba(0,0,0,0.11);
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+   overflow: hidden;
+   display: flex;
+}
+
+.image_container {
+   height: 100%;
+   background-color: black;
+   width: 40%;
+}
+
+.image_container img {
+   width: 100%;
+   height: 100%;
+   position: relative;
+}
+
+.overlay_text {
+   position: absolute;
+   z-index: 1;
+   top: 50%;
+   width: 28.6%;
+   color: white;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 2rem;
+}
+
+.overlay_text::before {
+   content: '';
+   background-color: rgba(103, 90, 90, 0.115);
+   position: absolute;
+   z-index: -1;
+   width: 100%;
+   height: 100px;
+   left: 0;
+}
+ 
+/* form content */
+.form_container {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.form_container h1 {
+   width: 60%;
+   text-align: justify;
+   margin: 5% 5% 3% 5%;
+   font-size: 1.375rem;
+}
+
+.form_container form {
+   width: 100%;
+   height: 100%;
+}
+
+.form_container form fieldset {
+   width: 100%;
+   height: 60%;
+   box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.13), 0px 1px 2px 0px rgba(0,0,0,0.11);
+   display: flex;
+   font-weight: 500;
+   border: none;
+}
+
+.form_container form fieldset legend {
+   font-size: 1.275rem;
+   font-weight: 500;
+}
+
+.section_1, .section_2 {
+   display: flex;
+   flex-direction: column;
+   margin: 5%;
+   margin-top: 2%;
+   width: 22%;
+   height: 50%;
+   font-size: 0.875rem;
+}
+
+fieldset input {
+   height: 2rem;
+   width: 15rem;
+   padding: 5%;
+   font-size: 0.875rem;
+   color: var(--main-color);
+   border-radius: 5px;
+   border: 1px solid rgb(195, 186, 186);
+   margin-bottom: 15px;
+   position: relative;
+}
+
+fieldset input:invalid {
+   border: 2px solid red;
+}
+
+.popUp {
+   content: '*passwords do not match';
+   position: relative;
+   color: red;
+   font-size: 0.6rem;
+   left: -33%;
+   top: 250%;
+   z-index: 1;
+}
+
+/* buttons */
+.submit_button{
+   margin: 5%;
+   width: 22%;
+   height: 10%;
+   font-size: 0.875rem;
+   border: 1px solid black;
+   border-radius: 10px;
+   background-color: rgb(41, 43, 41);
+   color: white;
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   cursor: pointer;
+}
+
+.submit_button:hover {
+   background-color: rgb(0, 0, 0);
+}
+
+.misc {
+   margin-left: 5%;
+   font-family: "Poppins", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 0.875rem;
+}
+
+.misc a {
+   color: green;
+   cursor: pointer;
+}
+
+.misc a:hover {
+   color: rgb(6, 170, 6);
+}
