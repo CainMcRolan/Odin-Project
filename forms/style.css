@@ -130,13 +130,11 @@ fieldset input:invalid {
 }
 
 .popUp {
-   content: '*passwords do not match';
    position: relative;
    color: red;
    font-size: 0.6rem;
-   left: -33%;
-   top: 250%;
    z-index: 1;
+   display: none;
 }
 
 /* buttons */
