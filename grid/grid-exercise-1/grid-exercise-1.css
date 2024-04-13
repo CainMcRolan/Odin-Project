@@ -1,0 +1,45 @@
+.container {
+   display: grid;
+   grid-template: 100px 100px 500px 100px / 100px 300px;
+   gap: 15px 15px;
+   grid-template-areas: 
+      "header header"
+      "sidebar nav"
+      "sidebar article"
+      "footer footer"
+   ;
+}
+
+.container div {
+   border-radius: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 30px;
+}
+
+.header {
+   grid-area: header;
+   background-color: rgb(21, 116, 21);
+}
+
+.sidebar {
+   grid-area: sidebar;
+   background-color: rgb(29, 29, 126);
+}
+
+.nav {
+   grid-area: nav;
+   background-color: blue;
+}
+
+.article {
+   grid-area: article;
+   background-color: rgb(201, 8, 201);
+}
+
+.footer {
+   grid-area: footer;
+   background-color: rgba(128, 128, 128, 0.298);
+}
+
