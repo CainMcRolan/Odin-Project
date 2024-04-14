@@ -2,7 +2,7 @@
 
 A repository for Patriarch Cain's progress in the free material "The Odin Project".
 
-
+Each folder contains the corresponding lessons and side projects
 
 ## Acknowledgements
 
