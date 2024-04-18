@@ -1,8 +1,8 @@
 function getComputerChoice() {
    const random = Math.random();
    if (random <= 1/3) return "rock";
-   if (random > 1/3 && random <= 2/3) return "paper";
-   if (random > 2/3 && random <= 1) return "scissors";
+   else if (random <= 2/3) return "paper";
+   else return "scissors";
 }
 
 let score = {
