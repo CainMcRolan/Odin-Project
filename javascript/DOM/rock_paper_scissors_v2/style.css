@@ -1,0 +1,68 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body, html {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: white;
+   font-family: monospace;
+   font-weight: bold;
+}
+
+div.container {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+div.buttonContainer {
+   width: 50%;
+   height: 50%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+div.buttonContainer > button {
+   width: 30%;
+   height: 60%;
+   border-radius: 50%;
+   border: none;
+   transition: all 0.5s;
+   border: 1px solid black;
+}
+
+div.buttonContainer > button:hover {
+   cursor: pointer;
+   transform: scale(1.1);
+   transition: all 0.5s;
+}
+
+div.buttonContainer > button.rock {
+   background: url('rock.svg') center / 50% no-repeat;
+}
+
+div.buttonContainer > button.paper {
+   background: url('paper.svg') center / 50% no-repeat;
+}
+
+div.buttonContainer > button.scissors {
+   background: url('scissors.svg') center / 50% no-repeat;
+}
+
+.result {
+   text-align: center;
+}
+
+div.buttonContainer > button.selected {
+   border: 5px solid black;
+}
