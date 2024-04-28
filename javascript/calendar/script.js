@@ -1,60 +1,74 @@
-const months = {
-   'January': 31,
-   'February': 29,
-   'March': 31,
-   'April': 30,
-   'May': 31,
-   'June': 30,
-   'July': 31,
-   'August': 31,
-   'September': 30,
-   'October': 31,
-   'November': 30,
-   'December': 31,
-};
+function displayMonth(year, month) {
+   const currentMonth = new Date(year, month, 1); 
+   //Gets the Starting day
+   const getDay = currentMonth.getDay(); 
+   // 30 days
+   const numberOfDays = new Date(year, month + 1, 0).getDate();
 
-let days = document.querySelectorAll('.day');
-const monthTitle = document.querySelector('.month_title');
-const container =  document.querySelector('.container');
-monthTitle.textContent = 'Calendar (2024)';
+   const total = 35 - (getDay + numberOfDays);
 
-
-function getMonth() {
-   let div = document.createElement('div');
-   div.classList.add('day');
-   container.append(div) ;
-
-   for (let month in months) {
-      let display = ``;
-      for (let i = 1; i <= months[month]; ++i) {
-         display += `<div class='day ${month}'>${i}</div>`;
-      }
-      container.innerHTML += display;
-   }
-
-   days = document.querySelectorAll('.day');
-   for (let i = 0; i < days.length; i++) {
-      if (i % 7 === 0) {
-         days[i].classList.add('sundays');
-      }
-   }
-   const divs = document.querySelectorAll('.container > div:nth-child(7n)');
-   divs.forEach(div => {
-      div.classList.add('saturdays');
-  });
-
-  document.querySelector('.sat').style.color = 'black';
-
-  for (let day of days) {
-      day.addEventListener('mouseover', ()=> {
-         day.style.backgroundColor = 'green';
-         monthTitle.textContent = `${day.classList.item(1)}`;
-      });
-
-      day.addEventListener('mouseout', ()=> {
-         day.style.backgroundColor = 'white';
-      });
+   const months = {
+      'January': 0,
+      'February': 1,
+      'March': 2,
+      'April': 3,
+      'May': 4,
+      'June': 5,
+      'July': 6,
+      'August': 7,
+      'September': 8,
+      'October': 9,
+      'November': 10,
+      'December': 11,
+   };
       
-  }
+   const daysOfTheWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+   
+   let monthString = () => {
+      for (let m in months) {
+         if (month == months[m]) {
+            return m;
+         }
+      }
+   };
+
+   let table = `<table class='calendar'><caption>${monthString()} ${year}</caption><tr>`;
+   for (let days of daysOfTheWeek) {
+      table += `<th>${days}</th>`;
+   }
+   table += `</tr><tr>`;
+
+   let dayCount = 0;
+   let displayDay = 0;
+
+   for (let i = 0; i < 6; i++) {
+      for (let j = 0; j < 7; j++) {
+         if (dayCount >= getDay) displayDay++;
+         if (dayCount < getDay) {
+            table += `<td></td>`;
+         } else if (displayDay < numberOfDays + 1) {
+            table += `<td>${displayDay}</td>`;
+         } else if (displayDay < numberOfDays + total) {
+            for (let k = 0; k < total; k++) {
+               table += `<td></td>`;
+               displayDay++;
+            }
+         }
+         dayCount++;
+      }
+      table += `</tr><tr>`;
+   }
+
+   table += `</tr></table>`;
+
+   document.body.innerHTML += table;
+
+   const tableRows = document.querySelectorAll('tr');
+   for (let row of tableRows) {
+      row.children[0].style.color = 'red';
+      row.children[6].style.color = 'blue'
+   }
 }
-getMonth();
+
+
+console.log(displayMonth(2024, 3));
