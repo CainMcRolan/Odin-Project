@@ -1,0 +1,42 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html, body {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: column;
+   background-color: black;
+}
+
+div.container {
+   width: 960px;
+   height: 960px;
+   border: 1px solid black;
+   display: flex;
+   flex-wrap: wrap;
+   background-color: white;
+}
+
+div.box {
+   border: 1px solid black;
+}
+
+button.grid_number {
+   width: 960px;
+   height: 50px;
+   border-radius: 0.25rem;
+   font-family: monospace;
+   background-color: rgb(78, 241, 78);
+   cursor: pointer;
+}
+
+button.grid_number:hover {
+   background-color: rgb(43, 241, 43);
+   transform: scale(1.1);
+}
