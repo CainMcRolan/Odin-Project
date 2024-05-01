@@ -1,18 +1,14 @@
 const findTheOldest = function(people) {
-   let ageBracket = [];
-   let currentYear = new Date().getFullYear();
-  
-   ageBracket = people.map((person) => {
-      person.yearOfDeath = person.yearOfDeath || currentYear;
-      let age = person.yearOfDeath - person.yearOfBirth;
-      return {name: person.name, age: age};
+   let currDate = new Date().getFullYear();
+   const ageArray = people.map((p) => {
+         let DoD = p.yearOfDeath || currDate;
+         let age = DoD - p.yearOfBirth;
+         return {'name': p.name, 'age': age};
    })
 
-   let oldest = ageBracket.reduce((currentPerson, nextPerson) => {
-      return currentPerson.age > nextPerson.age ? currentPerson: nextPerson;
-   }) 
-
-   return oldest;
+   return ageArray.reduce((acc, cur) => {
+         return acc.age > cur.age ? acc: cur;
+   })
 };
 
 // Do not edit below this line
