@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Library</title>
+   <link rel="stylesheet" href="style.css">
+   <script type="module" src="script.js" defer></script>
+</head>
+<body>
+   <div class="container">
+      <header class="header">
+         <p class="title">LIBRARY</p>
+         <button class="add_book">+</button>
+      </header>
+      <hr>
+      <div class="library">
+      </div>
+      <dialog class="dialog">
+         <h1>Add New Card</h1>
+         <form action="index.html" method="dialog" class="myForm">
+            <label>Title:</label>
+            <input type="text" class="add_title">
+            <label>Author:</label>
+            <input type="text" class="add_author">
+            <label>Pages:</label>
+            <input type="text" class="add_pages">
+            <select name="read_status" class="read_status">
+               <option value="read">Read</option>
+               <option value="not read">Not Read</option>
+            </select>
+            <input type="submit" >
+         </form>
+      </dialog>
+   </div>
+  
+</body>
+</html>
