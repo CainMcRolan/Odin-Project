@@ -44,9 +44,10 @@ let hamster = {
    }
  };
  
- let speedy = {
-   __proto__: hamster
- };
+ let speedy = {};
+
+ Object.setPrototypeOf(speedy, hamster);
+
  
  let lazy = {
    __proto__: hamster
