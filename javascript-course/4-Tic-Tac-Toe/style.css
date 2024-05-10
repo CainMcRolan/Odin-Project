@@ -8,4 +8,94 @@ html, body {
    height: 100vh;
    width: 100%;
    font-family: monospace;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+div.container {
+   width: 30%;
+   height: 60%;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  
+}
+
+p.turn {
+   width: 80%;
+   height: 10%;
+   font-size: 2em;
+   text-align: center;
+}
+
+div.board {
+   width: 80%;
+   height: 80%;
+   border: 1px solid black;
+   display: grid;
+   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+button.reset {
+   height: 5%;
+   width: 25%;
+   margin: 3%;
+   font-size: 1em;
+   font-family: monospace;
+   cursor: pointer;
+}
+
+div.box {
+   border: 1px solid black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 4em;
+   cursor: pointer;
+}
+
+dialog.dialog1 {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   height: 20%;
+   width: 12%;
+   transform: translate(-50%, -50%);
+}
+
+dialog.dialog1 > form {
+   width: 100%;
+   height: 100%;
+   display: grid;
+}
+
+dialog.dialog1 > form > input[type='text'] {
+   padding: 0.5rem;
+   font-size: 1.5rem;
+   font-family: monospace;
+   overflow: hidden;
+   border: none;
+}
+
+dialog.dialog1 > form > input[type='text']:focus {
+   border: none;
+   background-color: black;
+   color: white;
+}
+
+dialog.dialog1 > form > input[type='submit'] {
+   cursor: pointer;
+   background-color: white;
+   border: none;
+   font-size: 1.1rem;
+}
+
+dialog.dialog1 > form > input[type='submit']:hover {
+   background-color: rgba(200, 200, 200);
+}
+
+dialog.dialog1::backdrop {
+   background-color: white;
 }

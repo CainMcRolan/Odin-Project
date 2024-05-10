@@ -1,3 +1,16 @@
+//TIC TAC TOE GAME
+startGame();
+function startGame() {
+   const dialog1 = document.querySelector('.dialog1');
+   dialog1.showModal();
+   const submitButton = document.querySelector('.submit');
+   submitButton.addEventListener('click', () => {
+      let getInitialPlayer = getCredentials();
+      screenController();
+      document.querySelector('.turn').textContent = `${getInitialPlayer.getPlayer1()} Turn...`;
+   })
+}
+
 function gameBoard() {
    let board = [];
    let winningCombinations = [
@@ -36,7 +49,7 @@ function gameBoard() {
    const checkDraw = () => {
       for (let boxes of board) {
          for (let box of boxes) {
-            if (box.getValue() === 0) return false;
+            if (box.getValue() === '') return false;
          }
       }
       return true;
@@ -45,7 +58,7 @@ function gameBoard() {
    const resetBoard = () => {
       for (let boxes of board) {
          for (let box of boxes) {
-            box.setValue(0);
+            box.setValue('');
          }
       }
    }
@@ -59,7 +72,7 @@ function gameBoard() {
 }
 
 function insertIntoBox() {
-   let value = 0;
+   let value = '';
 
    const setValue = (playerTurn) => {
       value = playerTurn;
@@ -73,14 +86,36 @@ function insertIntoBox() {
    }
 }
 
+function getCredentials() {
+   let player1 = document.querySelector('.player1_input');
+   let player2 = document.querySelector('.player2_input');
+   return {
+      getPlayer1: () => player1.value,
+      getPlayer2: () => player2.value,
+   }
+}
+
 function playerTurn() {
-   let player = 'X';
+   let getPlayers = getCredentials();
+   let players = [
+      {
+         'playerName': getPlayers.getPlayer1(),
+         'value': 'X',
+      }, 
+      {
+         'playerName': getPlayers.getPlayer2(),
+         'value': 'O',
+      },
+   ];
+   
+   let player = players[0];
+
    const getPlayerTurn = () => player;
    const setPlayerTurn = () => {
-      player === 'X' ? player = 'O': player = 'X';
+      player == players[0] ? player = players[1]: player = players[0];
    }
    const resetPlayerTurn = () => {
-      player = 'X';
+      player = players[0];
    }
 
    return {
@@ -94,45 +129,97 @@ function GameController() {
    let board = gameBoard();
    let myBoard = board.returnBoard();
    let turn = playerTurn();
+   let myTurn = turn.getPlayerTurn();
 
    const initiateGame = (row, column) => {
-      let currentTurn = turn.getPlayerTurn();
-      if (myBoard[row][column].getValue() !== 0) {
+      let currentTurn = myTurn.value;
+      if (myBoard[row][column].getValue() !== '') {
          return;
       }
 
-      console.log(`Current Turn: ${currentTurn}`);
+      console.log(`Current Turn: ${myTurn.playerName}`);
       myBoard[row][column].setValue(currentTurn);
 
       if (board.checkWin(currentTurn)) {
          console.log(`${currentTurn} Won!`);
-         board.resetBoard();
-         turn.resetPlayerTurn();
-         return;
+         return `Won`;
       }
 
       if (board.checkDraw()) {
          console.log(`It's a Draw!`);
-         board.resetBoard();
-         turn.resetPlayerTurn();
-         return;
+         return `Draw`;
       }
       turn.setPlayerTurn();
-      console.log(`Next Turn: ${turn.getPlayerTurn()}`);
+      myTurn = turn.getPlayerTurn();
+      console.log(`Next Turn: ${myTurn.playerName}`);
    }
 
    return {
       initiateGame,
+      getBoard: () => board,
+      getTurn: () => myTurn.playerName,
+      getResetTurn: () => turn,
    }
 }
 
-const game = GameController();
-game.initiateGame(0, 2); //X
-game.initiateGame(0, 0); //O
-game.initiateGame(1, 0); //X
-game.initiateGame(0, 1); //O
-game.initiateGame(1, 1); //X
-game.initiateGame(1, 2); //O
-game.initiateGame(2, 1); //X
-game.initiateGame(2, 0); //O
-game.initiateGame(2, 2); //X
+function screenController() {
+   const game = GameController();
+   const myBoard = game.getBoard(); 
+   const resetTurn = game.getResetTurn();
+   const playerTurnP = document.querySelector('.turn');
+   const boardDiv = document.querySelector('.board');
+   const resetButton = document.querySelector('.reset');
+
+   const updateScreen = () => {
+      boardDiv.textContent = '';
+      let board = game.getBoard();
+      board = board.returnBoard();
+
+      board.forEach((row, i) => {
+         row.forEach((box, j) => {
+            const boxButton = document.createElement('div');
+            boxButton.classList.add('box');
+            boxButton.textContent = box.getValue();
+            boxButton.setAttribute('data', `${i}${j}`);
+            boardDiv.append(boxButton);
+         })
+      })
+   }
+
+   function clickHandlerBoard(e) {
+      const selectedBox = e.target.getAttribute('data');
+      const row = selectedBox.slice(0,1);
+      const column = selectedBox.slice(1, 2);
+      const getStatus = game.initiateGame(row, column);
+      const activePlayer = game.getTurn();
+
+      playerTurnP.textContent = `${activePlayer} Turn...`;
+     
+      updateScreen();
+
+      switch (getStatus) {
+         case 'Won':
+            playerTurnP.textContent = `${activePlayer} Won!`;
+            boardDiv.removeEventListener("click", clickHandlerBoard);
+            break;
+         case 'Draw':
+            playerTurnP.textContent = `It's a Draw...`;
+            boardDiv.removeEventListener("click", clickHandlerBoard);
+            break;
+      }
+   }
+
+   function resetAll() {
+      myBoard.resetBoard();
+      resetTurn.resetPlayerTurn();
+      updateScreen();
+      const activePlayer = game.getTurn();
+      playerTurnP.textContent = `${activePlayer} Turn...`;
+      boardDiv.addEventListener("click", clickHandlerBoard);
+   }
+
+   boardDiv.addEventListener("click", clickHandlerBoard);
+   resetButton.addEventListener("click", resetAll);
+
+   updateScreen();
+}
