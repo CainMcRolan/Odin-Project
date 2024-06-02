@@ -136,21 +136,16 @@ function GameController() {
          return;
       }
 
-      console.log(`Current Turn: ${myTurn.playerName}`);
       myBoard[row][column].setValue(currentTurn);
 
       if (board.checkWin(currentTurn)) {
-         console.log(`${currentTurn} Won!`);
          return `Won`;
       }
 
       if (board.checkDraw()) {
-         console.log(`It's a Draw!`);
          return `Draw`;
       }
       turn.setPlayerTurn();
-      myTurn = turn.getPlayerTurn();
-      console.log(`Next Turn: ${myTurn.playerName}`);
    }
 
    return {
