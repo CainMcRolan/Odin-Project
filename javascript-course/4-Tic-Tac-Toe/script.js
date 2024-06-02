@@ -129,10 +129,9 @@ function GameController() {
    let board = gameBoard();
    let myBoard = board.returnBoard();
    let turn = playerTurn();
-   let myTurn = turn.getPlayerTurn();
 
    const initiateGame = (row, column) => {
-      let currentTurn = myTurn.value;
+      let currentTurn = turn.getPlayerTurn().value;
       if (myBoard[row][column].getValue() !== '') {
          return;
       }
@@ -157,7 +156,7 @@ function GameController() {
    return {
       initiateGame,
       getBoard: () => board,
-      getTurn: () => myTurn.playerName,
+      getTurn: () => turn.getPlayerTurn().playerName,
       getResetTurn: () => turn,
    }
 }
