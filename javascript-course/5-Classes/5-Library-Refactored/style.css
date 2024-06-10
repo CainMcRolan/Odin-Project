@@ -1,0 +1,109 @@
+* {
+   padding: 0;
+   box-sizing: border-box;
+   margin: 0;
+}
+
+body, html {
+   width: 100%;;
+   height: 100vh;
+}
+
+header {
+   width: 100%;
+   height: 15%;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   border-bottom: 5px outset black;
+}
+
+header > h1 {
+   font-family: monospace;
+   font-size: 4rem;
+}
+
+header > button {
+   width: 5%;
+   height: 50%;
+   cursor: pointer;
+   font-size: 2rem;
+}
+
+main {
+   width: 100%;
+   height: 85%;
+   display: flex;
+   justify-content: center;
+}
+
+main > .container {
+   margin-top: 10px;
+   height: 90%;
+   width: 58%;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
+   grid-auto-rows: 200px;
+}
+
+.container > .card {
+   border: 1px solid black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+dialog.dialog {
+   width: 30%;
+   height: 50%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+dialog.dialog > h1 {
+   height: 10%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 3rem;
+}
+
+dialog.dialog > form {
+   position: relative;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 80%;
+   height: 80%;
+   gap: 10px;
+   display: grid;
+   grid-template: repeat(4, 1fr) / 0.2fr 1fr;
+   align-items: center;
+   justify-content: center;
+}
+
+dialog.dialog > form > input[type='text'], dialog.dialog > form > select {
+   height: 40px;
+   width: 100%;
+   padding: 10px;
+   font-size: 1.5rem;
+}
+
+dialog.dialog > form > label {
+   font-size: 1.5rem;
+}
+
+dialog.dialog > form > input[type='submit'] {
+   height: 40px;
+}
+
+dialog.dialog > form > select {
+   font-size: 1rem;
+}
+
+dialog.dialog::backdrop {
+   background-color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Refactored Library</title>
+   <link rel="stylesheet" href="style.css">
+   <script src="script.js" type="module" defer></script>
+</head>
+<body>
+   <header>
+      <h1>Library</h1>
+      <button class="add_book">+</button>
+   </header>
+   <main>
+      <div class="container">
+      </div>
+   </main>
+   <dialog class="dialog">
+      <form action="index.html" method="dialog" class="myForm">
+         <label>Title:</label>
+         <input type="text" class="add_title">
+         <label>Author:</label>
+         <input type="text" class="add_author">
+         <label>Pages:</label>
+         <input type="text" class="add_pages">
+         <select name="read_status" class="add_read_status">
+            <option value="Read">Read</option>
+            <option value="Unread">Not Read</option>
+         </select>
+         <input type="submit" value="Add Book">
+      </form>
+   </dialog>
+</body>
+</html>
