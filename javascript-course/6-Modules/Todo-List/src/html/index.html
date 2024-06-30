@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>DoQuick</title>
+</head>
+<body>
+   <header>
+      <button class="navbar"><i class="ri-menu-line"></i></button>
+      <h1><i class="ri-checkbox-circle-fill"></i>Do<i>Quick</i></h1>
+      <span></span>
+   </header>
+   <article class="content">
+      <nav>
+         <div class="home">
+            <h1>Home</h1>
+            <hr>
+            <div class="home-div all-task" id="All Task">
+               <img src="" id="all-task-image">
+               <p>All Tasks</p>
+            </div>
+            <div class="home-div" id="Today">
+               <img src="" id="today-image">
+               <p>Today</p>
+            </div>   
+            <div class="home-div" id="Next 7 Days">
+               <img src="" id="next-day-image">
+               <p>Next 7 Days</p>
+            </div>   
+            <div class="home-div" id="Important">
+               <img src="" id="important-image">
+               <p>Important</p>
+            </div>   
+         </div>
+         <div class="projects">
+            <h1>Projects</h1>
+            <hr>
+            <section class="projects-container">
+               <div class="projects-div">
+                  <div>
+                     <p><i class="ri-menu-line"></i></p>
+                     <p class="project-title">Project1</p>
+                  </div>
+                  <span class="menu-span"><i class="ri-more-2-line" id="menu-i"></i></span>
+               </div>
+            </section>
+            <form class="add-project-form">
+               <p><i class="ri-menu-line"></i></p>
+               <input type="text" name="add-project-name" class="add-project-name" placeholder="Enter Project Name">
+               <button type="submit" id="add-project-button">Add</button>
+               <button type="button" class="cancel-button">Cancel</button>
+            </form>
+            <div class="add-project">
+               <p><i class="ri-add-circle-line"></i></p>
+               <p>Add Project</p>
+            </div>
+         </div>
+         <div class="notes">
+            <h1>Notes</h1>
+            <hr>
+            <div class="add-note">
+               <p><i class="ri-add-circle-line"></i></p>
+               <p>Add Notes</p>
+            </div>
+         </div>
+      </nav>
+      <div class="main-container fdsfdsf">
+         <div class="sub-container">
+            <div class="title-container">
+               <h1>Today</h1>
+            </div>
+            <div class="tasks-container"></div>
+            <form class="add-task-form">
+               <label>Title</label>
+               <input type="text" name="add-task-title" class="add-task-title" placeholder="What to do?">
+               <label>Description(optional)</label>
+               <textarea name="add-task-description" class="add-task-description" placeholder="eg: 8 hour study session"></textarea>
+               <label>Date</label>
+               <input type="date" class="add-task-date">
+               <div>
+                  <button type="submit" class="task-submit">Add</button>
+                  <button type="button" class="task-cancel">Cancel</button>
+               </div>
+            </form>
+            <div class="add-task">
+               <p><i class="ri-add-circle-line"></i></p>
+               <p>Add Task</p>
+            </div>
+         </div>
+      </div>
+   </article>
+   <footer>
+      <p>Made By Patriarch👑</p>
+   </footer>
+</body>
+</html>
